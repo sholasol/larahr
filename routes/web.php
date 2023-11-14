@@ -19,6 +19,8 @@ use App\Http\Controllers\AuthController;
 // });
 
 Route::get('/', [AuthController::class, 'index'])->name('login');
-Route::get('/forgot_password', [AuthController::class, 'forgot_password']);
-Route::get('/register', [AuthController::class, 'register']);
-Route::post('/register_user', [AuthController::class, 'register_user']);//
+Route::get('forgot_password', [AuthController::class, 'forgot_password']);
+Route::get('register', [AuthController::class, 'register']);
+Route::post('register_user', [AuthController::class, 'register_user']); //
+Route::post('checkemail', [AuthController::class, 'CheckEmail']);
+Route::post('login_user', [AuthController::class, 'login_user']);
