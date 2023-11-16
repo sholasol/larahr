@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\Backend\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,3 +25,8 @@ Route::get('register', [AuthController::class, 'register']);
 Route::post('register_user', [AuthController::class, 'register_user']); //
 Route::post('checkemail', [AuthController::class, 'CheckEmail']);
 Route::post('login_user', [AuthController::class, 'login_user']);
+
+//Admin 
+Route::group(['middleware' => 'admin'], function () {
+    Route::get('admin/dashboard', [DashboardController::class, 'dashboard']);
+});

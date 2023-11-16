@@ -68,7 +68,7 @@ class AuthController extends Controller
             if (Auth::User()->is_role == "1") {
                 return redirect()->intended('admin/dashboard');
             } else {
-                return redirect('/')->with('error', 'No HR admin...please check');
+                return redirect('/')->with('error', 'Access Denied! Get admin Credential.');
             }
         } else {
             return redirect()->back()->with('error', 'Invalid credentials');
