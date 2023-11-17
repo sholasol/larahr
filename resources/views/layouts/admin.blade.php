@@ -28,10 +28,14 @@
         href="{{ url('public/assets/plugins/datatables/jquery.dataTables.min.css')}}">
     <link type="text/css" rel="stylesheet"
         href="{{ url('public/assets/plugins/datatables/extensions/dataTables.jqueryui.min.css')}}">
+
+    <link type="text/css" rel="stylesheet" href="{{ url('public/assets/plugins/datepicker/css/datepicker.min.css')}}">
     <!-- Favicon -->
     <link rel="icon" href="{{ url('public/assets/images/favicon.ico')}}" type="image/x-icon">
+
     <!-- HTML5 shim and Respond.js' for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js' doesn"t work if you view the page via file:// -->
+    <!-- WARNING: Respond.js' doesn"t work if you view the page via file:// 
+        -->
     <!--[if lt IE 9]>
       <script src="http://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js')}}"></script>
       <script src="http://oss.maxcdn.com/respond/1.4.2/respond.min.js')}}"></script>
@@ -160,6 +164,8 @@
     <script src="{{ url('public/assets/js/highlight.min.js')}}"></script>
     <script src="{{ url('public/assets/js/app.js')}}"></script>
     <script src="{{ url('public/assets/js/custom.js')}}"></script>
+    <script src="{{ url('public/assets/plugins/datepicker/js/datepicker.min.js')}}"></script>
+    <script src="{{ url('public/assets/plugins/datepicker/js/datepicker.es.js')}}"></script>
 
     <script>
     // Hoverable DataTable	
@@ -170,6 +176,24 @@
             sSearch: ''
         }
     });
+    </script>
+
+    <script>
+    // Make Sunday and Saturday disabled
+    var disabledDays = [0, 6];
+    $('#disabled-days').datepicker({
+        language: 'en',
+        onRenderCell: function(date, cellType) {
+            if (cellType == 'day') {
+                var day = date.getDay(),
+                    isDisabled = disabledDays.indexOf(day) != -1;
+
+                return {
+                    disabled: isDisabled
+                }
+            }
+        }
+    })
     </script>
 
     @yield('script')

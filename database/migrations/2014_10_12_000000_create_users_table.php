@@ -20,6 +20,12 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->tinyInteger('is_role')->default(0);
+            $table->string('hired')->nullable();
+            $table->decimal('commission')->nullable();
+            $table->string('manager_id')->nullable();
+            $table->string('department')->nullable();
+            $table->tinyInteger('job_id')->nullable();
+            $table->decimal('salary')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

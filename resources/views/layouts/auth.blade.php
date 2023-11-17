@@ -13,14 +13,21 @@
     <title>Authentication | HRMS</title>
     <!-- Main CSS -->
     <link type="text/css" rel="stylesheet" href="{{ url('public/assets/plugins/bootstrap/css/bootstrap.min.css')}}" />
-    <link type="text/css" rel="stylesheet" href="{{ url('public/assets/plugins/font-awesome/css/font-awesome.min.css')}}" />
-    <link type="text/css" rel="stylesheet" href="{{ url('public/assets/plugins/simple-line-icons/css/simple-line-icons.css')}}">
+    <link type="text/css" rel="stylesheet"
+        href="{{ url('public/assets/plugins/font-awesome/css/font-awesome.min.css')}}" />
+    <link type="text/css" rel="stylesheet"
+        href="{{ url('public/assets/plugins/simple-line-icons/css/simple-line-icons.css')}}">
     <link type="text/css" rel="stylesheet" href="{{ url('public/assets/plugins/ionicons/css/ionicons.css')}}">
     <link type="text/css" rel="stylesheet" href="{{ url('public/assets/css/app.min.css')}}" />
     <link type="text/css" rel="stylesheet" href="{{ url('public/assets/css/style.min.css')}}" />
     <link type="text/css" rel="stylesheet" href="{{ url('public/assets/css/auth.css')}}" />
     <!-- Favicon -->
     <link rel="icon" href="{{ url('public/assets/images/favicon.ico')}}" type="image/x-icon">
+    <style>
+    .mtop {
+        margin-top: 150px;
+    }
+    </style>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn"t work if you view the page via file:// -->
     <!--[if lt IE 9]>

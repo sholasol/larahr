@@ -24,7 +24,8 @@
                     <h4 class="card-header-title">
                         Employees List
                     </h4>
-                    <a href="" class="fa fa-plus-circle text-primary"> Add </a>
+                    <a href="{{ url('admin/create_employee') }}" class="fa fa-plus-circle text-primary"> Add
+                    </a>
 
                 </div>
                 <div class="card-body collapse show" id="collapse5">
@@ -35,37 +36,38 @@
                             <tr>
                                 <th width="5%">#</th>
                                 <th>Name</th>
-                                <th>Position</th>
-                                <th>Office</th>
-                                <th>Age</th>
-                                <th>Start date</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Department</th>
                                 <th>Salary</th>
+                                <th>Hired</th>
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach($employees as $key => $emp)
                             <tr>
-                                <td>1</td>
+                                <td>{{$key + 1}}</td>
                                 <td>
-                                    <img src=" {{ url('public/assets/images/avatar/avatar1.png')}}"
-                                        class="img-fluid wd-35 ht-35 rounded-circle" alt="">
-                                    Tiger Nixon
+                                    <img src=" {{ url('public/assets/images/avatar/avatar1.png')}}" class="img-fluid wd-35 ht-35 rounded-circle" alt="">
+                                    {{$emp->firstname}}, {{$emp->lastname}}
                                 </td>
-                                <td>System Architect</td>
-                                <td>Edinburgh</td>
-                                <td>61</td>
-                                <td>2011/04/25</td>
-                                <td>$320,800</td>
+                                <td>{{$emp->email}}</td>
+                                <td>{{$emp->phone}}</td>
+                                <td>{{$emp->department}}</td>
+                                <td>{{$emp->salary}}</td>
+                                <td>{{$emp->hired}}</td>
                             </tr>
+                            @endforeach
                         </tbody>
                         <tfoot>
                             <tr>
                                 <th>#</th>
                                 <th>Name</th>
-                                <th>Position</th>
-                                <th>Office</th>
-                                <th>Age</th>
-                                <th>Start date</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Department</th>
                                 <th>Salary</th>
+                                <th>Hired</th>
                             </tr>
                         </tfoot>
                     </table>

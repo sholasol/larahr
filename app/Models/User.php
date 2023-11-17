@@ -22,6 +22,12 @@ class User extends Authenticatable
         'lastname',
         'email',
         'phone',
+        'hired',
+        'commission',
+        'manager_id',
+        'department',
+        'job_id',
+        'salary',
         'password',
         'is_role'
     ];

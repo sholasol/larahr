@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="card shadow-none pd-20 mx-auto wd-300 text-center bd-1 align-self-center mt-5">
+<div class="card shadow-none pd-20 mx-auto wd-300 text-center bd-1 align-self-center mtop">
     <h4 class="card-title mt-3 text-center">Human Resources</h4>
     <p class="text-center">Sing in to your account</p>
     @include('_message')
