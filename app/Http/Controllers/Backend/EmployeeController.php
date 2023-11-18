@@ -10,10 +10,11 @@ use Illuminate\Support\Facades\Hash;
 
 class EmployeeController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $employees = User::all();
-        return view('backend.employees.list', ['employees' => $employees]);
+        $data['getRecord'] = User::getRecord();
+        // $employees = User::all();
+        return view('backend.employees.list', $data);
     }
 
     public function create()
