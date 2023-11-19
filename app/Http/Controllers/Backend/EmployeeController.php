@@ -71,4 +71,17 @@ class EmployeeController extends Controller
             return response()->json(array("exists" => false));
         }
     }
+
+    public function viewEmployee($id)
+    {
+        $data['getRecord'] = User::find($id);
+        return view('backend.employees.view', $data);
+    }
+
+    public function editEmployee($id)
+    {
+        $data['getRecord'] = User::find($id);
+
+        return view('backend.employees.edit', $data);
+    }
 }

@@ -76,7 +76,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($getRecord as $key => $emp)
+                            @forelse($getRecord as $key => $emp)
                             <tr>
                                 <td>{{$key + 1}}</td>
                                 <td>
@@ -99,12 +99,18 @@
                                 <td>{{$emp->salary}}</td>
                                 <td>{{$emp->hired}}</td>
                                 <td>
-                                    <a href="" class="fa fa-edit text-success"></a>
-                                    <a href="" class="fa fa-eye text-primary"></a>
+                                    <a href="{{ url('admin/employees/view/'.$emp->id) }}"
+                                        class="fa fa-eye text-primary"></a>
+                                    <a href="{{ url('admin/employees/edit/'.$emp->id) }}"
+                                        class="fa fa-edit text-success"></a>
                                     <a href="" class="fa fa-trash text-danger"></a>
                                 </td>
                             </tr>
-                            @endforeach
+                            @empty
+                            <tr>
+                                <td colspan="8">No record Found. </td>
+                            </tr>
+                            @endforelse
                         </tbody>
                         <tfoot>
                             <tr>
