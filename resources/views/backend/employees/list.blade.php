@@ -32,16 +32,11 @@
                 <div class="card-body collapse show" id="collapse2">
                     <form action="">
                         <div class="d-flex wd-300">
-                            <div class="form-group mg-b-0 mg-md-l-20 mg-t-20 mg-md-t-0">
-                                <label>Email: <span class="tx-danger">*</span></label>
-                                <input type="text" name="email" class="form-control wd-150 wd-xs-250"
-                                    placeholder="Enter email" required>
-                            </div>
-                            <div class="form-group mg-b-0 mg-md-l-20 mg-t-20 mg-md-t-0">
-                                <label>Password: <span class="tx-danger">*</span></label>
-                                <input type="text" name="password" class="form-control wd-150 wd-xs-250"
-                                    placeholder="Enter email" required>
-                            </div>
+                            <dciv class="form-group mg-b-0 mg-md-l-30 mg-t-20 mg-md-t-0">
+                                <label>Enter Search: </label>
+                                <input type="text" name="search" value="{{ Request()->search }}"
+                                    class="form-control wd-150 wd-xs-250" placeholder="Enter Search">
+                            </dciv>
                             <!-- form-group -->
                             <div class="mg-l-10 mg-t-25 pd-t-4">
                                 <button type="submit" class="btn btn-custom-primary pd-y-8">Search</button>
@@ -74,6 +69,7 @@
                                 <th>Email</th>
                                 <th>Phone</th>
                                 <th>Department</th>
+                                <th>Role</th>
                                 <th>Salary</th>
                                 <th>Hired</th>
                                 <th></th>
@@ -91,6 +87,15 @@
                                 <td>{{$emp->email}}</td>
                                 <td>{{$emp->phone}}</td>
                                 <td>{{$emp->department}}</td>
+                                <td>
+                                    <!-- {{ !empty($emp->is_role) ? 'HR' : "User"}} -->
+                                    @if($emp->is_role ==1)
+                                    HR
+                                    @else
+                                    Employees
+                                    @endif
+
+                                </td>
                                 <td>{{$emp->salary}}</td>
                                 <td>{{$emp->hired}}</td>
                                 <td>
@@ -108,6 +113,7 @@
                                 <th>Email</th>
                                 <th>Phone</th>
                                 <th>Department</th>
+                                <th>Role</th>
                                 <th>Salary</th>
                                 <th>Hired</th>
                                 <th></th>

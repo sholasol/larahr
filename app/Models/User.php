@@ -3,10 +3,11 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Http\Request;
+use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
@@ -52,10 +53,30 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    static public function getRecord()
+    static public function getRecord(Request $request)
     {
-        $return = self::select('users.*')
-            ->orderBy('id', 'desc')
+        //without search 
+        // $return = self::select('users.*')
+        //     ->orderBy('id', 'desc')
+        //     ->paginate(20);
+        // return $return;
+
+        // Search Tables
+        $return = self::select('users.*');
+
+        // search term
+        $search = $request->get('search');
+        if (!empty($search)) {
+            $return = $return->where('firstname', 'like', '%' . $search . '%')
+                ->orWhere('lastname', 'like', '%' . $search . '%')
+                ->orWhere('salary', 'like', '%' . $search . '%')
+                ->orWhere('email', 'like', '%' . $search . '%')
+                ->orWhere('department', 'like', '%' . $search . '%')
+                ->orWhere('salary', 'like', '%' . $search . '%')
+                ->orWhere('phone', 'like', '%' . $search . '%');
+        }
+
+        $return = $return->orderBy('id', 'desc')
             ->paginate(20);
 
         return $return;
