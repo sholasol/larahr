@@ -36,6 +36,8 @@ Route::group(['middleware' => 'admin'], function () {
     Route::post('chekEmpExists', [EmployeeController::class, 'chekEmpExists']);
     Route::get('admin/employees/view/{id}', [EmployeeController::class, 'viewEmployee']);
     Route::get('admin/employees/edit/{id}', [EmployeeController::class, 'editEmployee']);
+    Route::post('admin/employees/edit/{id}', [EmployeeController::class, 'updateEmployee']);
+    Route::get('admin/employees/delete/{id}', [EmployeeController::class, 'deleteEmployee']);
 });
 
 

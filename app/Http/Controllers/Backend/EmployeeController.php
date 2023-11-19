@@ -84,4 +84,44 @@ class EmployeeController extends Controller
 
         return view('backend.employees.edit', $data);
     }
+
+    public function updateEmployee($id, Request $request)
+    {
+        $user = request()->validate([
+            'firstname' => 'required',
+            'lastname' => 'required',
+            'email' => 'required',
+            'phone' => 'required',
+            'manager' => 'required',
+            'job' => 'required',
+            'role' => 'required',
+            'hired' => 'required',
+            'salary' => 'required',
+            'department' => 'required'
+        ]);
+
+        $user = User::find($id);
+        $user->firstname = trim($request->firstname);
+        $user->lastname = trim($request->lastname);
+        $user->email = trim($request->email);
+        $user->phone = trim($request->phone);
+        $user->department = trim($request->department);
+        $user->manager_id = trim($request->manager);
+        $user->hired = trim($request->hired);
+        $user->is_role = trim($request->role);
+        $user->salary = trim($request->salary);
+        $user->commission = trim($request->commission);
+        $user->job_id = trim($request->job);
+        $user->save();
+
+        return redirect('admin/employees')->with('success', 'Employee updated successfully');
+    }
+
+    public function deleteEmployee($id)
+    {
+        $deleteEmployee = User::find($id);
+        $deleteEmployee->delete();
+
+        return redirect('admin/employees')->with('error', 'Employee deleted successfully');
+    }
 }

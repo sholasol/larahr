@@ -71,6 +71,7 @@
                                 <th>Department</th>
                                 <th>Role</th>
                                 <th>Salary</th>
+                                <th>Commission (%)</th>
                                 <th>Hired</th>
                                 <th></th>
                             </tr>
@@ -97,13 +98,16 @@
 
                                 </td>
                                 <td>{{$emp->salary}}</td>
+                                <td>{{$emp->commission}}</td>
                                 <td>{{$emp->hired}}</td>
                                 <td>
                                     <a href="{{ url('admin/employees/view/'.$emp->id) }}"
                                         class="fa fa-eye text-primary"></a>
                                     <a href="{{ url('admin/employees/edit/'.$emp->id) }}"
                                         class="fa fa-edit text-success"></a>
-                                    <a href="" class="fa fa-trash text-danger"></a>
+                                    <a href="{{ url('admin/employees/delete/'.$emp->id) }}"
+                                        class="fa fa-trash text-danger"
+                                        onclick="return confirm('Are you sure you want to delete this employee?')"></a>
                                 </td>
                             </tr>
                             @empty
@@ -121,6 +125,7 @@
                                 <th>Department</th>
                                 <th>Role</th>
                                 <th>Salary</th>
+                                <th>Commission (%)</th>
                                 <th>Hired</th>
                                 <th></th>
                             </tr>

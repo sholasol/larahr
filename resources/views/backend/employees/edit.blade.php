@@ -41,12 +41,13 @@
                                         class="ion-android-close"></i></a>
                             </div>
                         </div>
-                        <form method="post" action="{{ url('createEmp') }}" enctype="multipart/form-data">
+                        <form method="post" action="{{ url('admin/employees/edit/'.$getRecord->id) }}"
+                            enctype="multipart/form-data">
                             {{ csrf_field() }}
                             <div class=" card-body collapse show" id="collapse2">
                                 <div class="form-layout form-layout-2">
                                     <div class="row no-gutters">
-                                        <div class="col-md-4">
+                                        <div class="col-md-6">
                                             <div class="form-group">
                                                 <label class="form-control-label active">Firstname: <span
                                                         class="tx-danger">*</span></label>
@@ -58,7 +59,7 @@
 
                                         </div>
                                         <!-- col-4 -->
-                                        <div class="col-md-4 mg-t--1 mg-md-t-0">
+                                        <div class="col-md-6 mg-t--1 mg-md-t-0">
                                             <div class="form-group mg-md-l--1">
                                                 <label class="form-control-label active">Lastname: <span
                                                         class="tx-danger">*</span></label>
@@ -78,18 +79,6 @@
                                                     placeholder="Enter email address" value="{{$getRecord->email }}"
                                                     onblur="checkEmail(this)">
                                                 <p class="text-danger duplicate_message">{{$errors->first('email')}}</p>
-                                            </div>
-
-                                        </div>
-                                        <!-- col-4 -->
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label class="form-control-label active">Password: <span
-                                                        class="tx-danger">*</span></label>
-                                                <input class="form-control" type="password" name="password"
-                                                    placeholder="*************">
-                                                <p class="text-danger">{{$errors->first('password')}}
-                                                </p>
                                             </div>
 
                                         </div>
@@ -185,7 +174,7 @@
                                                     data-placeholder="Choose manager" tabindex="-1" aria-hidden="true">
                                                     <option label="Choose manager"></option>
                                                     <option value="{{$getRecord->manager }}" selected="">
-                                                        {{$getRecord->manager }} Manager
+                                                        {{$getRecord->manager }}
                                                     </option>
                                                     <option value="1">Henry Wick</option>
                                                     <option value="2">Sam James</option>
