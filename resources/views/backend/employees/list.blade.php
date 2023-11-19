@@ -25,7 +25,8 @@
                         Search
                     </h4>
                     <div class="card-header-btn">
-                        <a href="" data-toggle="collapse" class="btn card-collapse" data-target="#collapse2" aria-expanded="true"><i class="ion-ios-arrow-down"></i></a>
+                        <a href="" data-toggle="collapse" class="btn card-collapse" data-target="#collapse2"
+                            aria-expanded="true"><i class="ion-ios-arrow-down"></i></a>
                     </div>
                 </div>
                 <div class="card-body collapse show" id="collapse2">
@@ -33,11 +34,13 @@
                         <div class="d-flex wd-300">
                             <div class="form-group mg-b-0 mg-md-l-20 mg-t-20 mg-md-t-0">
                                 <label>Email: <span class="tx-danger">*</span></label>
-                                <input type="text" name="email" class="form-control wd-150 wd-xs-250" placeholder="Enter email" required>
+                                <input type="text" name="email" class="form-control wd-150 wd-xs-250"
+                                    placeholder="Enter email" required>
                             </div>
                             <div class="form-group mg-b-0 mg-md-l-20 mg-t-20 mg-md-t-0">
                                 <label>Password: <span class="tx-danger">*</span></label>
-                                <input type="text" name="password" class="form-control wd-150 wd-xs-250" placeholder="Enter email" required>
+                                <input type="text" name="password" class="form-control wd-150 wd-xs-250"
+                                    placeholder="Enter email" required>
                             </div>
                             <!-- form-group -->
                             <div class="mg-l-10 mg-t-25 pd-t-4">
@@ -81,7 +84,8 @@
                             <tr>
                                 <td>{{$key + 1}}</td>
                                 <td>
-                                    <img src=" {{ url('public/assets/images/avatar/avatar1.png')}}" class="img-fluid wd-35 ht-35 rounded-circle" alt="">
+                                    <img src=" {{ url('public/assets/images/avatar/avatar1.png')}}"
+                                        class="img-fluid wd-35 ht-35 rounded-circle" alt="">
                                     {{$emp->firstname}}, {{$emp->lastname}}
                                 </td>
                                 <td>{{$emp->email}}</td>
@@ -110,9 +114,7 @@
                             </tr>
                         </tfoot>
                     </table>
-                    <div style="padding: 10px; float:right;">
-                        {!! $getRecord->appends(Illuminate\Support\Facades\Request::except('page'))->links() !!}
-                    </div>
+                    @include('partials._paginate')
                 </div>
             </div>
         </div>
