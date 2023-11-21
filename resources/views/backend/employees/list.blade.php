@@ -25,8 +25,7 @@
                         Search
                     </h4>
                     <div class="card-header-btn">
-                        <a href="" data-toggle="collapse" class="btn card-collapse" data-target="#collapse2"
-                            aria-expanded="true"><i class="ion-ios-arrow-down"></i></a>
+                        <a href="" data-toggle="collapse" class="btn card-collapse" data-target="#collapse2" aria-expanded="true"><i class="ion-ios-arrow-down"></i></a>
                     </div>
                 </div>
                 <div class="card-body collapse show" id="collapse2">
@@ -34,8 +33,7 @@
                         <div class="d-flex wd-300">
                             <dciv class="form-group mg-b-0 mg-md-l-30 mg-t-20 mg-md-t-0">
                                 <label>Enter Search: </label>
-                                <input type="text" name="search" value="{{ Request()->search }}"
-                                    class="form-control wd-150 wd-xs-250" placeholder="Enter Search">
+                                <input type="text" name="search" value="{{ Request()->search }}" class="form-control wd-150 wd-xs-250" placeholder="Enter Search">
                             </dciv>
                             <!-- form-group -->
                             <div class="mg-l-10 mg-t-25 pd-t-4">
@@ -66,15 +64,14 @@
                             <tr>
                                 <th width="5%">#</th>
                                 <th>Name</th>
-                                <th>Email</th>
                                 <th>Phone</th>
                                 <th>Job</th>
                                 <th>Department</th>
-                                <th>Role</th>
+                                <!-- <th>Role</th> -->
                                 <th>Salary</th>
                                 <th>Commission (%)</th>
                                 <th>Hired</th>
-                                <th></th>
+                                <th width="20%"></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -82,35 +79,34 @@
                             <tr>
                                 <td>{{$key + 1}}</td>
                                 <td>
-                                    <img src=" {{ url('public/assets/images/avatar/avatar1.png')}}"
-                                        class="img-fluid wd-35 ht-35 rounded-circle" alt="">
+                                    <img src=" {{ url('public/assets/images/avatar/avatar1.png')}}" class="img-fluid wd-35 ht-35 rounded-circle" alt="">
                                     {{$emp->firstname}}, {{$emp->lastname}}
                                 </td>
-                                <td>{{$emp->email}}</td>
                                 <td>{{$emp->phone}}</td>
                                 <td>{{ !empty($emp->user_job->job_title) ? $emp->user_job->job_title : '' }}</td>
                                 <td>{{$emp->department}}</td>
-                                <td>
-                                    <!-- {{ !empty($emp->is_role) ? 'HR' : "User"}} -->
+                                <!-- <td>
                                     @if($emp->is_role ==1)
                                     HR
                                     @else
                                     Employees
                                     @endif
 
-                                </td>
+                                </td> -->
                                 <td>{{$emp->salary}}</td>
                                 <td>{{$emp->commission}}</td>
                                 <td>{{$emp->hired}}</td>
-                                <td>
-                                    <a href="{{ url('admin/employees/view/'.$emp->id) }}"
-                                        class="fa fa-eye text-primary"></a>
-                                    <a href="{{ url('admin/employees/edit/'.$emp->id) }}"
-                                        class="fa fa-edit text-success"></a>
-                                    <a href="{{ url('admin/employees/delete/'.$emp->id) }}"
-                                        class="fa fa-trash text-danger"
-                                        onclick="return confirm('Are you sure you want to delete this employee?')"></a>
+
+                                <td class="text-right">
+                                    <a href="{{ url('admin/employees/edit/'.$emp->id) }}" class="btn btn-label-primary btn-sm mg-y-5"><i class="fa fa-pencil"></i>
+                                        Edit</a>
+                                    <a href="{{ url('admin/employees/view/'.$emp->id) }}" class="btn btn-label-success btn-sm mg-y-5"><i class="fa fa-user"></i>
+                                        View</a>
+                                    <a href="{{ url('admin/employees/delete/'.$emp->id) }}" onclick="return confirm('Are you sure you want to delete this employee?')" class="btn btn-label-danger btn-sm mg-y-5"><i class="fa fa-trash"></i>
+                                        Delete</a>
                                 </td>
+
+
                             </tr>
                             @empty
                             <tr>
@@ -121,16 +117,15 @@
                         <tfoot>
                             <tr>
                                 <th>#</th>
-                                <th>Name</th>
                                 <th>Email</th>
                                 <th>Phone</th>
                                 <th>Job</th>
                                 <th>Department</th>
-                                <th>Role</th>
+                                <!-- <th>Role</th> -->
                                 <th>Salary</th>
                                 <th>Commission (%)</th>
                                 <th>Hired</th>
-                                <th></th>
+                                <th>Action</th>
                             </tr>
                         </tfoot>
                     </table>

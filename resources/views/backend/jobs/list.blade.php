@@ -25,8 +25,7 @@
                         Search
                     </h4>
                     <div class="card-header-btn">
-                        <a href="" data-toggle="collapse" class="btn card-collapse" data-target="#collapse2"
-                            aria-expanded="true"><i class="ion-ios-arrow-down"></i></a>
+                        <a href="" data-toggle="collapse" class="btn card-collapse" data-target="#collapse2" aria-expanded="true"><i class="ion-ios-arrow-down"></i></a>
                     </div>
                 </div>
                 <div class="card-body collapse show" id="collapse2">
@@ -34,8 +33,7 @@
                         <div class="d-flex wd-300">
                             <dciv class="form-group mg-b-0 mg-md-l-30 mg-t-20 mg-md-t-0">
                                 <label>Enter Search: </label>
-                                <input type="text" name="search" value="{{ Request()->search }}"
-                                    class="form-control wd-150 wd-xs-250" placeholder="Enter Search">
+                                <input type="text" name="search" value="{{ Request()->search }}" class="form-control wd-150 wd-xs-250" placeholder="Enter Search">
                             </dciv>
                             <!-- form-group -->
                             <div class="mg-l-10 mg-t-25 pd-t-4">
@@ -77,10 +75,11 @@
                                 <td>{{$job->job_title}}</td>
                                 <td>{{$job->min_salary}}</td>
                                 <td>{{$job->max_salary}}</td>
-                                <td>
-                                    <a href="{{ url('admin/jobs/edit/'.$job->id)}}" class="fa fa-edit text-success"></a>
-                                    <a href="{{ url('admin/jobs/delete/'.$job->id)}}" class="fa fa-trash text-danger"
-                                        onclick="return confirm('Are you sure you want to delete this job?')"></a>
+                                <td class="text-right">
+                                    <a href="{{ url('admin/jobs/edit/'.$job->id)}}" class="btn btn-label-primary btn-sm mg-y-5"><i class="fa fa-pencil"></i>
+                                        Edit</a>
+                                    <a href="{{ url('admin/jobs/delete/'.$job->id)}}" onclick="return confirm('Are you sure you want to delete this job?')" class="btn btn-label-danger btn-sm mg-y-5"><i class="fa fa-trash"></i>
+                                        Delete</a>
                                 </td>
                             </tr>
                             @empty

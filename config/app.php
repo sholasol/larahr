@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\ServiceProvider;
+use Maatwebsite\Excel\Facades\Excel;
+
 
 return [
 
@@ -168,7 +170,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        'Excel' => Maatwebsite\Excel\Facades\Excel::class, //export to excel
+        //'Excel' => Maatwebsite\Excel\Facades\Excel::class, //export to excel
     ])->toArray(),
 
     /*
@@ -184,7 +186,7 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'Example' => App\Facades\Example::class,
-        'Excel' => Maatwebsite\Excel\Facades\Excel::class, //export to excel
+        //'Excel' => Maatwebsite\Excel\Facades\Excel::class, //export to excel
     ])->toArray(),
 
 ];
