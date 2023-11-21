@@ -81,4 +81,10 @@ class User extends Authenticatable
 
         return $return;
     }
+
+    //fetch jobs based on user table job id
+    public function user_job()
+    {
+        return $this->belongsTo(Jobs::class, 'job_id');
+    }
 }

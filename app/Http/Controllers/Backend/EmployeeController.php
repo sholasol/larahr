@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Backend;
 
+use App\Models\Jobs;
 use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -19,7 +20,8 @@ class EmployeeController extends Controller
 
     public function create()
     {
-        return view('backend.employees.create_employee');
+        $data['getJob']    = Jobs::get();
+        return view('backend.employees.create_employee', $data);
     }
 
     public function createEmp(Request $request)
@@ -81,6 +83,7 @@ class EmployeeController extends Controller
     public function editEmployee($id)
     {
         $data['getRecord'] = User::find($id);
+        $data['getJob']    = Jobs::get();
 
         return view('backend.employees.edit', $data);
     }

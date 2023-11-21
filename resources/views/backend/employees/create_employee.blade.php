@@ -106,12 +106,15 @@
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group mg-md-l--1 bd-t-0-force">
-                                                <label class="form-control-label mg-b-0-force">Job: <span class="tx-danger">*</span></label>
-                                                <select id="select2-a" name="job" class="form-control select2-hidden-accessible" data-placeholder="Choose job" tabindex="-1" aria-hidden="true">
+                                                <label class="form-control-label mg-b-0-force">Job: <span
+                                                        class="tx-danger">*</span></label>
+                                                <select id="select2-a" name="job"
+                                                    class="form-control select2-hidden-accessible"
+                                                    data-placeholder="Choose job" tabindex="-1" aria-hidden="true">
                                                     <option label="Choose job"></option>
-                                                    <option value="0" selected="">SWE</option>
-                                                    <option value="1">HR</option>
-                                                    <option value="2">PRO</option>
+                                                    @foreach($getJob as $job)
+                                                    <option value="{{ $job->id}}">{{ $job->job_title}}</option>
+                                                    @endforeach
                                                 </select>
                                                 <p class="text-danger">{{$errors->first('job')}}</p>
                                             </div>

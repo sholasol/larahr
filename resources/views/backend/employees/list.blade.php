@@ -68,6 +68,7 @@
                                 <th>Name</th>
                                 <th>Email</th>
                                 <th>Phone</th>
+                                <th>Job</th>
                                 <th>Department</th>
                                 <th>Role</th>
                                 <th>Salary</th>
@@ -87,6 +88,7 @@
                                 </td>
                                 <td>{{$emp->email}}</td>
                                 <td>{{$emp->phone}}</td>
+                                <td>{{ !empty($emp->user_job->job_title) ? $emp->user_job->job_title : '' }}</td>
                                 <td>{{$emp->department}}</td>
                                 <td>
                                     <!-- {{ !empty($emp->is_role) ? 'HR' : "User"}} -->
@@ -122,6 +124,7 @@
                                 <th>Name</th>
                                 <th>Email</th>
                                 <th>Phone</th>
+                                <th>Job</th>
                                 <th>Department</th>
                                 <th>Role</th>
                                 <th>Salary</th>

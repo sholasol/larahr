@@ -52,7 +52,7 @@
                     <h4 class="card-header-title">
                         Job List
                     </h4>
-                    <a href="{{ url('admin/create_employee') }}" class="fa fa-plus-circle text-primary"> Add Job
+                    <a href="{{ url('admin/create_job') }}" class="fa fa-plus-circle text-primary"> Add Job
                     </a>
 
                 </div>
@@ -71,18 +71,23 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @forelse($getJob as $key => $job)
                             <tr>
-                                <td>3</td>
-                                <td>ttt</td>
-                                <td>tttyyy</td>
-                                <td>fbbbh</td>
+                                <td>{{ $key +1}}</td>
+                                <td>{{$job->job_title}}</td>
+                                <td>{{$job->min_salary}}</td>
+                                <td>{{$job->max_salary}}</td>
                                 <td>
-                                    <a href="" class="fa fa-eye text-primary"></a>
-                                    <a href="" class="fa fa-edit text-success"></a>
-                                    <a href="" class="fa fa-trash text-danger"
-                                        onclick="return confirm('Are you sure you want to delete this employee?')"></a>
+                                    <a href="{{ url('admin/jobs/edit/'.$job->id)}}" class="fa fa-edit text-success"></a>
+                                    <a href="{{ url('admin/jobs/delete/'.$job->id)}}" class="fa fa-trash text-danger"
+                                        onclick="return confirm('Are you sure you want to delete this job?')"></a>
                                 </td>
                             </tr>
+                            @empty
+                            <tr>
+                                <td colspan="5">No Record Found</td>
+                            </tr>
+                            @endforelse
                         </tbody>
                         <tfoot>
                             <tr>
